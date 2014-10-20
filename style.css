@@ -421,7 +421,7 @@ http://www.gnu.org/licenses/gpl-2.0.html
 
 
 	#mygrid li {
-		border-right: 1em solid white;
+		/*border-right: 1em solid white;*/
 		max-width: 100%;
 	}
 
@@ -1367,7 +1367,7 @@ http://www.gnu.org/licenses/gpl-2.0.html
 
 
 .full-width .site-content .hentry.has-post-thumbnail:first-child {
-	margin-top: -10px;
+	margin-top: 0em;
 
 }
 

@@ -22,7 +22,7 @@ if ( get_theme_mod( 'featured_content_location' ) == 'default' ) {
 		<div id="content" class="site-content " role="main">
 
 
-		<ul id="mygrid">
+		<ul id="mygrid" class="container">
 			<?php
 			/*==========================================================
 			=            This is my Shit from wp codex site            =
@@ -56,39 +56,30 @@ if ( get_theme_mod( 'featured_content_location' ) == 'default' ) {
 
 				foreach ( $country_pages as $page ) : ?>
 
-				<li class="col-lg-4 col-md-6 col-sm-6">	
+				<li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">	
 				<?php
 					do_action( 'sequel_front_posts_before' ); ?>
 
 							<article id="post-<?php echo $page->ID; ?>" <?php post_class(); ?>>
 						    <a class="post-thumbnail" href="<?php echo get_page_link( $page->ID ); ?>">
 						    
-						    	<?php echo get_the_post_thumbnail( $page->ID, 'large' ); ?>
+						    	<?php echo get_the_post_thumbnail( $page->ID ); ?>
 						        
 						    </a>
 
 						    <header class="entry-header">
-							    <?php 
-								    //the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">','</a></h1>' );
-
-								?>
-								    <h1 class="entry-title"><a href="<?php echo get_page_link( $page->ID ); ?>"><?php echo $page->post_title; ?></a></h1>
+							   
+								<h1 class="entry-title"><a href="<?php echo get_page_link( $page->ID ); ?>"><?php echo $page->post_title; ?></a></h1>
 
 								    
-									<p><?php //echo sequel_grid_excerpt(); 
+									<p>
+										<?php 
 
-										$content = $page->post_content;
-										if ( ! $content ) // Check for empty page
-											continue;
+											$the_excerpt = $page->post_excerpt; 
+											echo $the_excerpt; 
 
-										$content = apply_filters( 'the_content', $content );	
-
-										// echo $content;
-										// echo get_the_excerpt(); 
-										$the_excerpt = $page->post_excerpt; 
-										echo $the_excerpt; 
-
-									?></p>
+										?>
+									</p>
 								
 								
 						    </header><!-- .entry-header -->
@@ -136,5 +127,5 @@ if ( get_theme_mod( 'featured_content_location' ) == 'default' ) {
 </div><!-- #main-content -->
 
 <?php
-get_sidebar();
+// get_sidebar();
 get_footer();
