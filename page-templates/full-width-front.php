@@ -29,47 +29,66 @@ if ( get_theme_mod( 'featured_content_location' ) == 'default' ) {
 			==========================================================*/
 			
 			$args = array(
-				'posts_per_page'   => 15,
-				'offset'           => 0,
-				'category'         => '',
-				'category_name'    => 'homepage',
-				'orderby'          => 'post_date',
-				'order'            => 'DESC',
-				'include'          => '',
-				'exclude'          => '',
-				'meta_key'         => '',
-				'meta_value'       => '',
-				'post_type'        => 'post',
-				'post_mime_type'   => '',
-				'post_parent'      => '',
-				'post_status'      => 'publish',
-				'suppress_filters' => true );
+				'sort_order' => 'DESC',
+				'sort_column' => 'post_title',
+				'hierarchical' => 1,
+				'exclude' => '',
+				'include' => '',
+				'meta_key' => '',
+				'meta_value' => '',
+				'authors' => '',
+				'child_of' => 19,
+				'parent' => -1,
+				'exclude_tree' => '',
+				'number' => '',
+				'offset' => 0,
+				'post_type' => 'page',
+				'post_status' => 'publish'
+			); 
 
 			 // $posts_array = get_posts( $args );
 			
 			/*-----  End of This is my Shit from wp codex site  ------*/
 
-				$myposts = get_posts( $args );
-				foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
+				$country_pages = get_pages( $args );
+
+				// print_r($country_pages);
+
+				foreach ( $country_pages as $page ) : ?>
+
 				<li class="col-lg-4 col-md-6 col-sm-6">	
 				<?php
 					do_action( 'sequel_front_posts_before' ); ?>
 
-							<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-						    <a class="post-thumbnail" href="<?php the_permalink(); ?>">
-						        <?php
-							    // Output the home-grid image.
-							    if ( has_post_thumbnail() ) :
-								    the_post_thumbnail();
-							    endif;
-						        ?>
+							<article id="post-<?php echo $page->ID; ?>" <?php post_class(); ?>>
+						    <a class="post-thumbnail" href="<?php echo get_page_link( $page->ID ); ?>">
+						    
+						    	<?php echo get_the_post_thumbnail( $page->ID, 'large' ); ?>
+						        
 						    </a>
 
 						    <header class="entry-header">
 							    <?php 
-								    the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">','</a></h1>' ); ?>
+								    //the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">','</a></h1>' );
+
+								?>
+								    <h1 class="entry-title"><a href="<?php echo get_page_link( $page->ID ); ?>"><?php echo $page->post_title; ?></a></h1>
+
 								    
-									<p><?php echo sequel_grid_excerpt(); ?></p>
+									<p><?php //echo sequel_grid_excerpt(); 
+
+										$content = $page->post_content;
+										if ( ! $content ) // Check for empty page
+											continue;
+
+										$content = apply_filters( 'the_content', $content );	
+
+										// echo $content;
+										// echo get_the_excerpt(); 
+										$the_excerpt = $page->post_excerpt; 
+										echo $the_excerpt; 
+
+									?></p>
 								
 								
 						    </header><!-- .entry-header -->

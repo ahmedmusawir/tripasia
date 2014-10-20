@@ -449,8 +449,8 @@ http://www.gnu.org/licenses/gpl-2.0.html
 
 	#mygrid li img {
 		/*border-top: 1em solid white;*/
-		border-top: 1em solid #0D2856;
-		border-right: 1em solid #0D2856;
+		border-top: .5em solid #0D2856;
+		border-right: .5em solid #0D2856;
 		/*border-left: 1em solid #0D2856;*/
 		/*border-right: 1em solid white;*/
 		max-width: 100%;
