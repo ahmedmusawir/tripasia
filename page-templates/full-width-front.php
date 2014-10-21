@@ -102,7 +102,7 @@ if ( get_theme_mod( 'featured_content_location' ) == 'default' ) {
 		</ul>
 		
 
-			<div id="primary" class="content-area">
+			<div id="primary" class="content-area front-page-content-area">
 					<div id="content" class="site-content" role="main">
 
 						<?php

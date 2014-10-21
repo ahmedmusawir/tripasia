@@ -1347,6 +1347,18 @@ http://www.gnu.org/licenses/gpl-2.0.html
 	.full-width .site-content footer.entry-meta {
 		margin-right: auto;
 	}
+
+
+}
+@media screen and (min-width: 1219px) {
+
+	.site-content .entry-header,
+	.site-content .entry-content {
+		/*width: 70%;*/
+		/*border: 1px solid red;*/
+		margin: 0 auto;
+	}
+
 }
 
 @media screen and (min-width: 1260px) {
@@ -1363,11 +1375,20 @@ http://www.gnu.org/licenses/gpl-2.0.html
 	.site-content blockquote.alignright {
 		margin-right: -18%;
 	}
+
+	
 }
 
 
 .full-width .site-content .hentry.has-post-thumbnail:first-child {
 	margin-top: 0em;
 
+}
+
+.front-page-content-area {
+
+	/*border: 1px solid red;*/
+	margin-top: -7em;
+	/*padding-top: -2em;*/
 }
 
