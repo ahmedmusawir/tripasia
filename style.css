@@ -1389,7 +1389,7 @@ http://www.gnu.org/licenses/gpl-2.0.html
 
 .front-page-content-area {
 
-	margin-top: -7em;
+	/*margin-top: -7em;*/
 }
 
 /*
@@ -1399,6 +1399,25 @@ http://www.gnu.org/licenses/gpl-2.0.html
 } 
 -->Updated min-width: 1218, set margin-right: auto;
 */
+
+.content-area {
+	padding-top: 0;
+}
+
+.content-area .site-content .page-header {
+	padding-top: 2em;
+}
+
+#mygrid {
+	padding-top: 3em;
+}
+
+
+
+
+
+
+
 
 
 
