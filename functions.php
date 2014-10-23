@@ -265,3 +265,16 @@ add_action( 'init', 'my_add_excerpts_to_pages' );
 
 /*-----  End of Adding Page Excerpts Capability  ------*/
 
+/*=====================================================
+=            Adding Excerpt Read More Link            =
+=====================================================*/
+
+// Changing excerpt more
+   // function new_excerpt_more($more) {
+   // global $post;
+   // return '… <a href="'. get_permalink($post->ID) . '">' . 'Read More &raquo;' . '</a>';
+   // }
+   // add_filter('excerpt_more', 'new_excerpt_more');
+
+/*-----  End of Adding Excerpt Read More Link  ------*/
+

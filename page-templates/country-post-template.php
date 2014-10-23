@@ -1,19 +1,7 @@
 <?php
 /**
- * The template for displaying Archive pages
- * Used to display archive-type pages if nothing more specific matches a query.
- * For example, puts together date-based pages if no date.php file exists.
+ * Template Name: Country Post Template 
  *
- * If you'd like to further customize these archive views, you may create a
- * new template file for each specific one. For example, Twenty Fourteen
- * already has tag.php for Tag archives, category.php for Category archives,
- * and author.php for Author archives.
- *
- * @link http://codex.wordpress.org/Template_Hierarchy
- *
- * @package WordPress
- * @subpackage Twenty_Fourteen
- * @since Twenty Fourteen 1.0
  */
 
 get_header(); ?>
@@ -44,17 +32,50 @@ get_header(); ?>
 			</header><!-- .page-header -->
 
 			<?php
-					// Start the Loop.
-					while ( have_posts() ) : the_post();
 
+			/*========================================================
+			=            This is my Shit from wp codex site            =
+			==========================================================*/
+			
+			$args = array(
+				'posts_per_page'   => 15,
+				'offset'           => 0,
+				'category'         => '',
+				'category_name'    => 'Featured Country',
+				'orderby'          => 'post_date',
+				'order'            => 'DESC',
+				'include'          => '',
+				'exclude'          => '',
+				'meta_key'         => '',
+				'meta_value'       => '',
+				'post_type'        => 'country',
+				'post_mime_type'   => '',
+				'post_parent'      => '',
+				'post_status'      => 'publish',
+				'suppress_filters' => true );
+
+				$countrys = new WP_Query( $args );
+		
+
+				
+
+			
+			/*-----  End of This is my Shit from wp codex site  ------*/
+
+
+					// Start the Loop.
+					while ( $countrys->have_posts() ) : $countrys->the_post();
 						/*
 						 * Include the post format-specific template for the content. If you want to
 						 * use this in a child theme, then include a file called called content-___.php
 						 * (where ___ is the post format) and that will be used instead.
 						 */
-						get_template_part( 'content', get_post_format() );
+						get_template_part( 'content', 'country' );
+						// get_template_part( 'content', get_post_format() );
 
 					endwhile;
+
+					wp_reset_postdata();
 					// Previous/next page navigation.
 					twentyfourteen_paging_nav();
 
